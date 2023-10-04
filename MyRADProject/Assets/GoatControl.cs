@@ -6,13 +6,15 @@ using UnityEngine.UIElements;
 
 public class GoatControl : MonoBehaviour
 {
-    float currentSpeed, walkingSpeed = 2, runningSpeed = 4;
+    public GameObject snowballCloneTemplate;
 
+    float currentSpeed, walkingSpeed = 2, runningSpeed = 4;
+    private float turningSpeed = 180;
     // Start is called before the first frame update
     void Start()
     {
-        currentSpeed = walkingSpeed = 2;, runningSpeed = 4;
-        private float turningSpeed = 180;
+        currentSpeed = walkingSpeed;
+     
     }
 
     // Update is called once per frame
@@ -20,24 +22,32 @@ public class GoatControl : MonoBehaviour
 {
     if (Input.GetKeyDown(KeyCode.W))
     {
-        Transform.position += currentSpeed * transform.forward = Time.deltaTime;
+        transform.position += currentSpeed * transform.forward * Time.deltaTime;
     }
 
     if (Input.GetKeyDown(KeyCode.S))
     {
-        Transform.position -= currentSpeed * Transform.forward = Time.deltaTime;
+        transform.position -= currentSpeed * transform.forward * Time.deltaTime;
     }
 
 
     if (Input.GetKeyDown(KeyCode.D))
     {
-        Transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
     }
 
     if (Input.GetKeyDown(KeyCode.A))
     {
-        Transform.Rotate(Vector3.up, -turningSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, -turningSpeed * Time.deltaTime);
     }
 
+    if (Input.GetMouseButton(0))
+    {
+       GameObject newGO = Instantiate(snowballCloneTemplate);
 
+       snowballcontrolscript mySnowball = newGO.GetComponent<snowballcontrolscript>();
+
+            mySnowball.ImThrowingYou(this);
+    }
+}
 }
