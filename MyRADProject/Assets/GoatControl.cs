@@ -27,14 +27,14 @@ public class GoatControl : MonoBehaviour
 
     if (Input.GetKeyDown(KeyCode.S))
     {
-        transform.position -= currentSpeed * transform.forward * Time.deltaTime;
+            transform.position -= currentSpeed * transform.forward * Time.deltaTime;
     }
 
 
     if (Input.GetKeyDown(KeyCode.D))
     {
-        transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
-    }
+            transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
+        }
 
     if (Input.GetKeyDown(KeyCode.A))
     {
