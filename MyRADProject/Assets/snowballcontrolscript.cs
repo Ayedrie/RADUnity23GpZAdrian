@@ -20,12 +20,24 @@ public class snowballcontrolscript : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("Ouch");
+
+        DealWithHits thingIHit = collision.gameObject.GetComponent<DealWithHits>();
+        if (thingIHit != null)
+        {
+            thingIHit.IHitYou();
+        }
+
+    }
+
     internal void ImThrowingYou(GoatControl goatControl)
     {
-        transform.position = goatControl.transform.position + 2* Vector3.up + 3 * goatControl.transform.forward;
+        transform.position = goatControl.transform.position + 2* Vector3.up + 1 * goatControl.transform.forward;
         rb = GetComponent<Rigidbody>();
 
-        rb.velocity = 10 * (2 * Vector3.up + 3 * goatControl.transform.forward);
+        rb.velocity = 8 * (3 * Vector3.up + 7 * goatControl.transform.forward);
 
 
     }

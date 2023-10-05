@@ -35,7 +35,7 @@ public class cubecontrolscript : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
         {    
            
-            transform.Rotate(Vector3.up, -90 * Time.deltaTime);
+            transform.Rotate(Vector3.up, -140 * Time.deltaTime);
             
         }
     }
